@@ -1,20 +1,20 @@
 import { useState } from "react";
 
 const DateInput = () => {
-  const [day, setDay] = useState("");
-  const [month, setMonth] = useState("");
-  const [year, setYear] = useState("");
+  const [day, setDay] = useState<number | undefined>();
+  const [month, setMonth] = useState<number | undefined>();
+  const [year, setYear] = useState<number | undefined>();
 
   const handleDayChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setDay(e.target.value);
+    setDay(parseFloat(e.target.value));
   };
 
   const handleMonthChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setMonth(e.target.value);
+    setMonth(parseFloat(e.target.value));
   };
 
   const handleYearChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setYear(e.target.value);
+    setYear(parseFloat(e.target.value));
   };
   return (
     <div className="mt-[50px] px-[50px]">
