@@ -3,7 +3,7 @@ import { AgeContext } from "../App"; // Import the AgeContext or the relevant co
 
 const Results = () => {
   const { age } = useContext(AgeContext); // Replace AgeContext with the actual context you're using
-  console.log(age.years);
+  console.log(age.year);
   return (
     <div className="flex flex-col gap-x-[10px] px-[50px] text-[60px] font-extrabold pb-[50px]">
       <p className="">
