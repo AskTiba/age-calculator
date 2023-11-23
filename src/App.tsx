@@ -13,14 +13,20 @@ function App() {
     day: "",
   });
   const [age, setAge] = useState({ year: "", month: "", day: "" });
-  const [dateErrors, setdateErrors] = useState({
+  const [dateErrors, setDateErrors] = useState({
     year: "",
     month: "",
     day: "",
-    generic: ""
+    generic: "",
   });
 
-  const hasErrors = dateErrors.year || dateErrors.month || dateErrors.day || dateErrors.generic
+  const dataWithErrorHandler = {
+    dateErrors,
+    setDateErrors,
+  };
+
+  const hasErrors =
+    dateErrors.year || dateErrors.month || dateErrors.day || dateErrors.generic;
 
   return (
     <>
@@ -35,7 +41,12 @@ function App() {
           <DateContext.Provider value={{ date, setDate }}>
             <AgeContext.Provider value={{ age, setAge }}>
               <DateInput hasErrors={hasErrors} dateErrors={dateErrors} />
-              <Button />
+              <Button
+                date={date}
+                setDate={setDate}
+                dataWithErrorHandler={dataWithErrorHandler}
+                hasErrors={hasErrors}
+              />
               <Results />
             </AgeContext.Provider>
           </DateContext.Provider>
