@@ -117,7 +117,7 @@ const Button: React.FC<ChildProps> = ({ dataWithErrorHandler, hasErrors }) => {
 
       if (!isDayInputValid && day) {
         setDateErrors((prevState) => ({
-          day: "Must be a valid day",
+          day: "Must be a valid date",
           month: dateErrors.month && isMonthInputValid ? "" : prevState.month,
           year: dateErrors.year && isYearInputValid ? "" : prevState.year,
           generic: "",
@@ -137,7 +137,7 @@ const Button: React.FC<ChildProps> = ({ dataWithErrorHandler, hasErrors }) => {
         setDateErrors((prevState) => ({
           day: dateErrors.day && isDayInputValid ? "" : prevState.day,
           month: dateErrors.month && isMonthInputValid ? "" : prevState.month,
-          year: "Must be a valid year",
+          year: "Must be in the past",
           generic: "",
         }));
       }
@@ -146,7 +146,7 @@ const Button: React.FC<ChildProps> = ({ dataWithErrorHandler, hasErrors }) => {
         day: "",
         month: "",
         year: "",
-        generic: "Must be a date in the past",
+        generic: "Must be in the past",
       }));
     } else {
       if (hasErrors) {
