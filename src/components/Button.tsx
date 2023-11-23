@@ -66,7 +66,7 @@ const Button: React.FC<ChildProps> = ({ dataWithErrorHandler, hasErrors }) => {
     };
 
     const isDayInputValid =
-      day > 1 &&
+      day >= 1 &&
       ((month !== 2 && day <= (currentMonth?.days || 31)) ||
         validateDaysForFeb());
 
@@ -156,7 +156,7 @@ const Button: React.FC<ChildProps> = ({ dataWithErrorHandler, hasErrors }) => {
           year: "",
           generic: "",
         });
-      }
+      } 
 
       setDateErrors(() => ({
         day: "",
