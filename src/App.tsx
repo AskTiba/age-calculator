@@ -3,12 +3,25 @@ import DateInput from "./components/DateInput";
 import Results from "./components/Results";
 import { createContext, useState } from "react";
 
-export const DateContext = createContext({});
-export const AgeContext = createContext({ years: 0, months: 0, days: 0 });
+export const DateContext = createContext({ year: "", month: "", day: "" });
+export const AgeContext = createContext({ year: "", month: "", day: "" });
 
 function App() {
-  const [date, setDate] = useState({});
-  const [age, setAge] = useState({ years: 0, months: 0, days: 0 });
+  const [date, setDate] = useState({
+    year: "",
+    month: "",
+    day: "",
+  });
+  const [age, setAge] = useState({ year: "", month: "", day: "" });
+  const [dateErrors, setdateErrors] = useState({
+    year: "",
+    month: "",
+    day: "",
+    generic: ""
+  });
+
+  const hasErrors = dateErrors.year || dateErrors.month || dateErrors.day || dateErrors.generic
+
   return (
     <>
       <div
@@ -21,7 +34,7 @@ function App() {
         >
           <DateContext.Provider value={{ date, setDate }}>
             <AgeContext.Provider value={{ age, setAge }}>
-              <DateInput />
+              <DateInput hasErrors={hasErrors} dateErrors={dateErrors} />
               <Button />
               <Results />
             </AgeContext.Provider>
