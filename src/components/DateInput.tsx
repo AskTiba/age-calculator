@@ -56,7 +56,7 @@ const DateInput: React.FC<ChildProps> = ({ dateErrors, hasErrors }) => {
             style={{
               border: hasErrors
                 ? "1px solid hsl(0, 100%, 67%)"
-                : "1px solid hsl(0, 0%, 94%)",
+                : "1px solid hsl(0, 1%, 94%)",
             }}
             onChange={handleDayChange}
           />
@@ -81,7 +81,7 @@ const DateInput: React.FC<ChildProps> = ({ dateErrors, hasErrors }) => {
             value={month}
             style={{
               border: hasErrors
-                ? "1px solid hslhsl(0, 100%, 67%)"
+                ? "1px solid hsl(0, 100%, 67%)"
                 : "1px solid hsl(0, 1%, 94%)",
             }}
             onChange={handleMonthChange}
@@ -108,7 +108,7 @@ const DateInput: React.FC<ChildProps> = ({ dateErrors, hasErrors }) => {
             style={{
               border: hasErrors
                 ? "1px solid hsl(0, 100%, 67%)"
-                : "1px solid hsl(0, 0%, 94%)",
+                : "1px solid hsl(0, 1%, 94%)",
             }}
             onChange={handleYearChange}
           />
