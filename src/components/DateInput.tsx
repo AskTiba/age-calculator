@@ -1,7 +1,17 @@
 import React, { useContext, ChangeEvent } from "react";
 import { DateContext } from "../App";
 
-const DateInput: React.FC = () => {
+interface ChildProps {
+  dateErrors: {
+    year: string;
+    month: string;
+    day: string;
+    generic: string;
+  };
+  hasErrors: boolean;
+}
+
+const DateInput: React.FC<ChildProps> = ({ dateErrors, hasErrors }) => {
   const { date, setDate } = useContext(DateContext);
 
   const handleDayChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -30,54 +40,84 @@ const DateInput: React.FC = () => {
           <label
             className="font-[800] text-[12px] text-Smokey-grey tracking-[3px] mb-[4px]"
             htmlFor="day-input"
+            style={{
+              color: hasErrors ? "hsl(0%, 100%, 67%)" : "hsl(0%, 1%, 44%)",
+            }}
           >
             DAY
           </label>
           <input
-            id="day-input"
+            id="day"
             className="h-[50px] w-[150px] rounded-[4px] p-5 text-[32px] font-extrabold
             border border-Light-grey hover:border-Smokey-grey cursor-pointer "
-            type="text"
+            type="number"
             placeholder="DD"
             value={day}
+            style={{
+              border: hasErrors
+                ? "1px solid hsl(0%, 100%, 67%)"
+                : "1px solid hsl(0%, 1%, 44%)",
+            }}
             onChange={handleDayChange}
           />
+          {dateErrors.day && <p className="error">{dateErrors.day}</p>}
         </div>
         <div className="flex flex-col">
           <label
             className="font-[800] text-[12px] text-Smokey-grey tracking-[3px] mb-[4px]"
             htmlFor="month-input"
+            style={{
+              color: hasErrors ? "hsl(0%, 100%, 67%)" : "hsl(0%, 1%, 44%)",
+            }}
           >
             MONTH
           </label>
           <input
-            id="month-input"
+            id="month"
             className="h-[50px] w-[150px] rounded-[4px] p-5 text-[32px] font-extrabold
             border border-Light-grey hover:border-Smokey-grey cursor-pointer "
-            type="text"
+            type="number"
             placeholder="MM"
             value={month}
+            style={{
+              border: hasErrors
+                ? "1px solid hsl(0%, 100%, 67%)"
+                : "1px solid hsl(0%, 1%, 44%)",
+            }}
             onChange={handleMonthChange}
           />
+          {dateErrors.month && <p className="error">{dateErrors.month}</p>}
         </div>
         <div className="flex flex-col">
           <label
             className="font-[800] text-[12px] text-Smokey-grey tracking-[3px] mb-[4px]"
             htmlFor="year-input"
+            style={{
+              color: hasErrors ? "hsl(0%, 100%, 67%)" : "hsl(0%, 1%, 44%)",
+            }}
           >
             YEAR
           </label>
           <input
-            id="year-input"
+            id="year"
             className="h-[50px] w-[150px] rounded-[4px] p-5 text-[32px] font-extrabold
             border border-Light-grey hover:border-Smokey-grey cursor-pointer tracking-[2.5px]"
-            type="text"
+            type="number"
             placeholder="YYYY"
             value={year}
+            style={{
+              border: hasErrors
+                ? "1px solid hsl(0%, 100%, 67%)"
+                : "1px solid hsl(0%, 1%, 44%)",
+            }}
             onChange={handleYearChange}
           />
+          {dateErrors.year && <p className="error">{dateErrors.year}</p>}
         </div>
       </div>
+      {dateErrors.generic && (
+        <p className="error generic">{dateErrors.generic}</p>
+      )}
     </div>
   );
 };
