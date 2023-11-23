@@ -41,7 +41,7 @@ const DateInput: React.FC<ChildProps> = ({ dateErrors, hasErrors }) => {
             className="font-[800] text-[12px] text-Smokey-grey tracking-[3px] mb-[4px]"
             htmlFor="day-input"
             style={{
-              color: hasErrors ? "hsl(0%, 100%, 67%)" : "hsl(0%, 1%, 44%)",
+              color: hasErrors ? "hsl(0, 100%, 67%)" : "hsl(0, 1%, 44%)",
             }}
           >
             DAY
@@ -55,8 +55,8 @@ const DateInput: React.FC<ChildProps> = ({ dateErrors, hasErrors }) => {
             value={day}
             style={{
               border: hasErrors
-                ? "1px solid hsl(0%, 100%, 67%)"
-                : "1px solid hsl(0%, 1%, 44%)",
+                ? "1px solid hsl(0, 100%, 67%)"
+                : "1px solid hsl(0, 0%, 94%)",
             }}
             onChange={handleDayChange}
           />
@@ -65,9 +65,9 @@ const DateInput: React.FC<ChildProps> = ({ dateErrors, hasErrors }) => {
         <div className="flex flex-col">
           <label
             className="font-[800] text-[12px] text-Smokey-grey tracking-[3px] mb-[4px]"
-            htmlFor="month-input"
+            htmlFor="month"
             style={{
-              color: hasErrors ? "hsl(0%, 100%, 67%)" : "hsl(0%, 1%, 44%)",
+              color: hasErrors ? "hsl(0, 100%, 67%)" : "hsl(0, 1%, 44%)",
             }}
           >
             MONTH
@@ -81,8 +81,8 @@ const DateInput: React.FC<ChildProps> = ({ dateErrors, hasErrors }) => {
             value={month}
             style={{
               border: hasErrors
-                ? "1px solid hsl(0%, 100%, 67%)"
-                : "1px solid hsl(0%, 1%, 44%)",
+                ? "1px solid hslhsl(0, 100%, 67%)"
+                : "1px solid hsl(0, 1%, 94%)",
             }}
             onChange={handleMonthChange}
           />
@@ -93,7 +93,7 @@ const DateInput: React.FC<ChildProps> = ({ dateErrors, hasErrors }) => {
             className="font-[800] text-[12px] text-Smokey-grey tracking-[3px] mb-[4px]"
             htmlFor="year-input"
             style={{
-              color: hasErrors ? "hsl(0%, 100%, 67%)" : "hsl(0%, 1%, 44%)",
+              color: hasErrors ? "hsl(0, 100%, 67%)" : "hsl(0, 1%, 44%)",
             }}
           >
             YEAR
@@ -107,8 +107,8 @@ const DateInput: React.FC<ChildProps> = ({ dateErrors, hasErrors }) => {
             value={year}
             style={{
               border: hasErrors
-                ? "1px solid hsl(0%, 100%, 67%)"
-                : "1px solid hsl(0%, 1%, 44%)",
+                ? "1px solid hsl(0, 100%, 67%)"
+                : "1px solid hsl(0, 0%, 94%)",
             }}
             onChange={handleYearChange}
           />
